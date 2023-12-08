@@ -2,12 +2,12 @@
 - name: Transfer file using PsFTP
   hosts: "{{ source_managed_host }}"
   vars:
-    source_managed_host: 192.168.75.90 
-    destination_managed_host: 192.168.1.250
-    psftp_username: hakki.candan
-    psftp_password: Hh123456
-    local_file_path: /home
-    remote_file_path: C:\users\hakki.candan\Downloads\xyz.log
+    source_managed_host: 192.168.1.250
+    destination_managed_host: 192.168.75.90
+    psftp_username: konsalt
+    psftp_password: Kon123_5!!
+    local_file_path: C:\users\hakki.candan\Downloads\xyz.log
+    remote_file_path: /home
 
   tasks:
     - name: Run PsFTP to upload file
