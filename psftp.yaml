@@ -1,1 +1,20 @@
 ---
+- name: Transfer file using PsFTP
+  hosts: "{{ source_managed_host }}"
+  vars:
+    source_managed_host: 192.168.1.250 # Replace with the actual source host hostname or IP
+    destination_managed_host: 192.168.75.90
+    psftp_username: konsalt
+    psftp_password: Kon123_5!!
+    local_file_path: C:\users\hakki.candan\Downloads\xyz.log
+    remote_file_path: /home
+
+  tasks:
+    - name: Run PsFTP to upload file
+      script: |
+        psftp {{ psftp_username }}@{{ destination_managed_host }} -pw {{ psftp_password }} << EOF
+        put {{ local_file_path }} {{ remote_file_path }}
+        bye
+        EOF
+      delegate_to: localhost
+
